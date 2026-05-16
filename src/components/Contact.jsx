@@ -1,18 +1,6 @@
-import { useState } from "react";
 import "./Contact.css";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [sent, setSent] = useState(false);
-
-  const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
-  const submit = (e) => {
-    e.preventDefault();
-    // In production, connect to Netlify Forms or EmailJS
-    setSent(true);
-  };
-
   return (
     <section id="contact">
       <p className="section-label">// 04. contact</p>
@@ -30,11 +18,11 @@ export default function Contact() {
 
           <div className="contact-links">
             {[
-              { label: "Email", value: "achindulara@icloud.com", href: "achindulara@icloud.com" },
+              { label: "Email", value: "achindulara@icloud.com" },
               { label: "GitHub", value: "github.com/achindulara", href: "#" },
               { label: "LinkedIn", value: "linkedin.com/in/achindulara", href: "https://www.linkedin.com/in/achin-dulara-3541383b1" },
             ].map(({ label, value, href }) => (
-              <a key={label} href={href} className="contact-link-row">
+              <a key={label} href={href} className="contact-link-row" target="_blank" rel="noreferrer">
                 <span className="contact-link-label">{label}</span>
                 <span className="contact-link-val">{value}</span>
               </a>
@@ -50,7 +38,7 @@ export default function Contact() {
 
       <footer className="site-footer">
         <span className="footer-eq">∫₋∞^∞ e^(−x²) dx = √π</span>
-        <span className="footer-copy">© 2026 Achin Dulara · Built with React · Deployed on Netlify</span>
+        <span className="footer-copy">© 2026 Achin Dulara · Built with React · Deployed on GitHub Pages</span>
       </footer>
     </section>
   );
